@@ -19,4 +19,13 @@ def greetings(request,name):
     return render(request,"helloapp/greetings.html",
                   {'username':name,
                    'title':'greetings'
+
+
+
+
+
+
+
+
+
                    })

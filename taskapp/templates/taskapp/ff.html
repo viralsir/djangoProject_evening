@@ -1,0 +1,35 @@
+
+<HTML>
+<HEAD>
+<!-- 201709/SFR/Flex@/031 : cross frame scripting - Netbanking | High Start-->
+<style id="antiClickjack">body{display:none !important;}</style>
+<script type="text/javascript">
+   if (self === top) {
+       var antiClickjack = document.getElementById("antiClickjack");
+       antiClickjack.parentNode.removeChild(antiClickjack);
+   } else {
+       top.location = self.location;
+   }
+</script>
+<!-- 201709/SFR/Flex@/031 : cross frame scripting - Netbanking | High  End-->
+<TITLE>Welcome to HDFC Bank NetBanking</TITLE>
+<script language="javascript">
+	var daemon			= 'NETBANKING';
+	var p_remoteaddress	= '';
+	var RsaAuthReq		= '';
+	
+	var l_path = window.location.pathname;
+
+	if(l_path == undefined || l_path == '' || l_path.indexOf("/netbanking") < 0){
+		window.location.href = window.location.protocol + "//" + window.location.host +"/netbanking";
+	}
+
+</script>
+</HEAD>
+	<FRAMESET border="false" frameBorder="O" frameSpacing="0" rows="*" cols="*">
+		<FRAMESET border="false" frameBorder="O" frameSpacing="0" rows="*,30" cols="*">
+			<FRAME marginwidth="0" marginheight="0" NAME="login_page" SRC="RSLogin.html?v=12" NORESIZE="true" scrolling="yes"/>
+			<FRAME marginwidth="0" marginheight="0" NAME="footer" SRC="footer.html" NORESIZE="true" scrolling="no"/>
+		</FRAMESET>
+	</FRAMESET>
+</HTML>
