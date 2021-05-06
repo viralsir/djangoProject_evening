@@ -3,7 +3,7 @@ from django import forms
 # Create your views here.
 
 class NewTaskForm(forms.Form):
-    task=forms.CharField(max_length=30,label="New Task :")
+    task=forms.CharField(max_length=30,label="Task :")
     priority=forms.IntegerField(max_value=10,min_value=1)
     status=forms.ChoiceField(choices=[('active','active'),('deactive','deactive')])
 
