@@ -15,4 +15,19 @@
               <li> no passenger</li>
            {% endfor %}
       </ol>
+
+    <h1> Non passenger List </h1>
+    <form action="{% url 'flight-book' flight.id %}" method="post">
+        {% csrf_token %}
+     Non Passenger :
+        <select name="non_passenger">
+            {% for nonp in non_passengers %}
+                <option value="{{ nonp.id }}">{{ nonp }}</option>
+                {% empty %}
+                <option value="#">all passenger are in the flight</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="book">
+    </form>
+
 {% endblock %}
