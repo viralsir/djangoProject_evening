@@ -1,0 +1,24 @@
+{% extends "course/layout.html" %}
+{% block body %}
+    <h1> Course view page </h1>
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th> Name  </th>
+                <th> Description</th>
+                <th> Fees </th>
+                <th> Durations </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for course in courses %}
+                <tr>
+                    <td>{{ course.name }}</td>
+                    <td>{{ course.description }}</td>
+                    <td>{{ course.fees }}</td>
+                    <td>{{ course.duration }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
