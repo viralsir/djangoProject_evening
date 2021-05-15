@@ -2,11 +2,22 @@ from django.db import models
 '''
     makemigrations --> create migrations
     migrate ==> apply change which define in the migrations file
+
+
+    origin=Airport(code='bor',city='baroda')
+    destions=Airport(code='mub',city='mumbai')
+    
+    fl=flight(origin=Airport(code='bor',city='baroda'),
+                destions=Airport(code='mub',city='mumbai')
+                )
+    fl.origin.code => 'bor'
+    
 '''
 # Create your models here.
 class airport(models.Model):
     code=models.CharField(max_length=40)
     city=models.CharField(max_length=40)
+
 
     def __str__(self):
         return f"{self.city}({self.code})"

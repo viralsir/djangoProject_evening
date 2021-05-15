@@ -1,0 +1,41 @@
+{% extends "flights/layout.html" %}
+{% block body %}
+    <h1> Airport  - {{ airport.id }}</h1>
+    <ul>
+        <li> Code  : {{ airport.code}}</li>
+        <li> city : {{ airport.city }}</li>
+
+    </ul>
+     <h1> As a Origin  flights :</h1>
+     <ul>
+        {% for fl in airport_origin %}
+            <li> {{ fl  }}</li>
+            <li> passenger count : {{ fl.passenger.count }}</li>
+             <ul>
+                {% for ps in fl.passenger.all %}
+                    <li> {{ ps }}</li>
+                    {% endfor %}
+             </ul>
+            {% empty %}
+            <li> no flights </li>
+        {% endfor  %}
+     </ul>
+
+
+
+     <h1> As a arrival :</h1>
+     <ul>
+        {% for fl in airport_arrival %}
+            <li> {{ fl  }}</li>
+             <li> passenger count : {{ fl.passenger.count }}</li>
+             <ul>
+                {% for ps in fl.passenger.all %}
+                    <li> {{ ps }}</li>
+                    {% endfor %}
+             </ul>
+            {% empty %}
+            <li> no flights </li>
+        {% endfor  %}
+     </ul>
+
+{% endblock %}
