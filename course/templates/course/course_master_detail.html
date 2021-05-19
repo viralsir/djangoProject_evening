@@ -1,0 +1,12 @@
+{% extends "course/layout.html" %}
+{% block body %}
+    <h1> Course Detail View  </h1>
+    <ul>
+        <li> Name : {{ object.name }}</li>
+        <li> Description :{{ object.description }}</li>
+        <li> Duration :{{ object.duration }}</li>
+        <li> Fees :{{ object.fees }}</li>
+
+    </ul>
+
+{% endblock %}

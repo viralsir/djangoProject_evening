@@ -1,7 +1,7 @@
 {% extends "course/layout.html" %}
 {% block body %}
     <h1> Course Entry Form </h1>
-    <form action="{% url 'course-new' %}" method="post">
+    <form  method="post">
         {% csrf_token %}
         {{ form }}
         <input type="submit" value="save">

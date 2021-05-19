@@ -1,4 +1,4 @@
-from django.views.generic import CreateView,ListView
+from django.views.generic import CreateView,ListView,UpdateView,DeleteView,DetailView
 from django.shortcuts import render,redirect
 from .models import course_master
 from .form import CourseEntryForm
@@ -14,6 +14,23 @@ class CourseListView(ListView):
     template_name = 'course/course_view.html'
     context_object_name = 'courses'
     ordering = ['-name']
+
+class CourseUpdateView(UpdateView):
+    model = course_master
+    fields = '__all__'
+    template_name = 'course/course_register.html'
+
+class CourseDetailView(DetailView):
+    model = course_master
+#course_master_detail.html
+
+class CourseDeleteView(DeleteView):
+    model = course_master
+    success_url = '/course/view'
+
+#course_master_confirm_delete.html
+
+
 
 #course_master_list.html
 # Create your views here.

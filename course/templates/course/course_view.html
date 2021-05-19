@@ -1,13 +1,14 @@
 {% extends "course/layout.html" %}
 {% block body %}
     <h1> Course view page </h1>
-    <table class="table table-dark">
+    <table id="example" >
         <thead>
             <tr>
                 <th> Name  </th>
                 <th> Description</th>
                 <th> Fees </th>
                 <th> Durations </th>
+                <th> Action </th>
             </tr>
         </thead>
         <tbody>
@@ -17,6 +18,11 @@
                     <td>{{ course.description }}</td>
                     <td>{{ course.fees }}</td>
                     <td>{{ course.duration }}</td>
+                    <td>
+                        <a class="btn btn-outline-primary" href="{% url 'course-update' course.id %}">update</a>
+                        <a class="btn btn-outline-secondary" href="{% url 'course-detail' course.id %}">detail</a>
+                        <a class="btn btn-outline-danger" href="{% url 'course-delete' course.id %}">delete</a>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
