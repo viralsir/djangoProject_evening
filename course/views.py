@@ -1,4 +1,5 @@
 from django.views.generic import CreateView,ListView,UpdateView,DeleteView,DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render,redirect
 from .models import course_master
 from .form import CourseEntryForm
@@ -9,7 +10,7 @@ class CourseEntryView(CreateView):
     template_name = 'course/course_register.html'
 #course_master_form.html
 
-class CourseListView(ListView):
+class CourseListView(LoginRequiredMixin,ListView):
     model = course_master
     template_name = 'course/course_view.html'
     context_object_name = 'courses'
